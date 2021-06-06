@@ -28,9 +28,13 @@ function App() {
 
   const { colorMode, toggleColorMode } = useColorMode();
 
+  const colorModeButtonLabel = colorMode === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+
   return (
-    <VStack p={4}>
+    <>
+    <VStack padding={4} as='header'>
       <IconButton
+        aria-label={colorModeButtonLabel}
         icon={colorMode === 'light' ? <FaSun /> : <FaMoon />}
         isRound='true'
         size='lg'
@@ -38,7 +42,8 @@ function App() {
         onClick={toggleColorMode}
       />
       <Heading
-        mb='8'
+        as="h1"
+        marginBottom='4'
         fontWeight='extrabold'
         size='2xl'
         bgGradient='linear(to-r, pink.500, pink.300, blue.500)'
@@ -46,9 +51,12 @@ function App() {
       >
         Todo Application
       </Heading>
-      <TodoList todos={todos} deleteTodo={deleteTodo} />
-      <AddTodo addTodo={addTodo} />
     </VStack>
+    <VStack padding={4} as='main'>
+      <AddTodo addTodo={addTodo} />
+      <TodoList todos={todos} deleteTodo={deleteTodo} />
+    </VStack>
+    </>
   );
 }
 

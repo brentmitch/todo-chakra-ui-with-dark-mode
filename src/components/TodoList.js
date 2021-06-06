@@ -13,14 +13,17 @@ import { FaTrash } from 'react-icons/fa';
 function TodoList({ todos, deleteTodo }) {
   if (!todos.length) {
     return (
-      <Badge colorScheme='green' p='4' m='4' borderRadius='lg'>
+      <Badge borderRadius='lg' colorScheme='green' padding='4' margin='4' role="status" >
         No Todos, yay!!!
       </Badge>
     );
   }
 
   return (
-    <VStack
+    <VStack 
+      aria-atomic="false"
+      aria-live="polite"
+      as="ul"
       divider={<StackDivider />}
       borderColor='gray.100'
       borderWidth='2px'
@@ -31,10 +34,11 @@ function TodoList({ todos, deleteTodo }) {
       alignItems='stretch'
     >
       {todos.map((todo) => (
-        <HStack key={todo.id}>
+        <HStack as="li" key={todo.id}>
           <Text>{todo.body}</Text>
           <Spacer />
           <IconButton
+            aria-label={`Delete ${todo.body}`}
             icon={<FaTrash />}
             isRound='true'
             onClick={() => deleteTodo(todo.id)}

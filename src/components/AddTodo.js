@@ -1,4 +1,4 @@
-import { Button, HStack, Input, useToast } from '@chakra-ui/react';
+import { Button, FormControl, FormLabel, Input, Stack, useToast, VisuallyHidden  } from '@chakra-ui/react';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 
@@ -29,18 +29,25 @@ function AddTodo({ addTodo }) {
   const [content, setContent] = useState('');
 
   return (
-    <form onSubmit={handleSubmit}>
-      <HStack mt='8'>
+    <form onSubmit={handleSubmit} >
+      <Stack alignItems="center" direction={["column","row"]} marginBottom='8'>
+      <FormControl id="newTodo">
+        <VisuallyHidden>
+          <FormLabel>New Todo</FormLabel>
+        </VisuallyHidden>
         <Input
+          width={[300, "100%"]}
+          minWidth={['auto', 240, 320]}
           variant='filled'
-          placeholder='learning chakraui with todo app'
+          placeholder='Learn Chakra-UI with Todo App'
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
-        <Button colorScheme='pink' px='8' type='submit'>
+        </FormControl>
+        <Button colorScheme='pink' paddingInline='8' type='submit' width={[200, 'auto']}>
           Add Todo
         </Button>
-      </HStack>
+      </Stack>
     </form>
   );
 }
