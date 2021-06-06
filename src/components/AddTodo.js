@@ -9,7 +9,7 @@ function AddTodo({ addTodo }) {
     e.preventDefault();
     if (!content) {
       toast({
-        title: 'No content',
+        title: 'No Todo item content.  Please enter a Todo item.',
         status: 'error',
         duration: 2000,
         isClosable: true,
@@ -36,9 +36,9 @@ function AddTodo({ addTodo }) {
           <FormLabel>New Todo</FormLabel>
         </VisuallyHidden>
         <Input
+          minWidth={['auto', 240, 320]}
           onChange={(e) => setContent(e.target.value)}
           placeholder='Learn Chakra-UI with Todo App'
-          minWidth={['auto', 240, 320]}
           value={content}
           variant='filled'
           width={[300, "100%"]}
