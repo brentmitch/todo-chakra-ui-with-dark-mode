@@ -21,17 +21,17 @@ function TodoList({ todos, deleteTodo }) {
 
   return (
     <VStack 
+      alignItems='stretch'
       aria-atomic="false"
       aria-live="polite"
       as="ul"
-      divider={<StackDivider />}
       borderColor='gray.100'
-      borderWidth='2px'
-      p='4'
       borderRadius='lg'
-      w='100%'
-      maxW={{ base: '90vw', sm: '80vw', lg: '50vw', xl: '40vw' }}
-      alignItems='stretch'
+      borderWidth='2px'
+      divider={<StackDivider />}
+      padding='4'
+      maxWidth={{ base: '90vw', sm: '80vw', lg: '50vw', xl: '40vw' }}
+      width='100%'
     >
       {todos.map((todo) => (
         <HStack as="li" key={todo.id}>

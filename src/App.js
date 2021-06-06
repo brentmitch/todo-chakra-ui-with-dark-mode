@@ -34,20 +34,20 @@ function App() {
     <>
     <VStack padding={4} as='header'>
       <IconButton
+        alignSelf='flex-end'
         aria-label={colorModeButtonLabel}
         icon={colorMode === 'light' ? <FaSun /> : <FaMoon />}
         isRound='true'
-        size='lg'
-        alignSelf='flex-end'
         onClick={toggleColorMode}
+        size='lg'
       />
       <Heading
         as="h1"
-        marginBottom='4'
-        fontWeight='extrabold'
-        size='2xl'
-        bgGradient='linear(to-r, pink.500, pink.300, blue.500)'
         bgClip='text'
+        bgGradient='linear(to-r, pink.500, pink.300, blue.500)'
+        fontWeight='extrabold'
+        marginBottom='4'
+        size='2xl'
       >
         Todo Application
       </Heading>

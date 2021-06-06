@@ -36,12 +36,12 @@ function AddTodo({ addTodo }) {
           <FormLabel>New Todo</FormLabel>
         </VisuallyHidden>
         <Input
-          width={[300, "100%"]}
-          minWidth={['auto', 240, 320]}
-          variant='filled'
-          placeholder='Learn Chakra-UI with Todo App'
-          value={content}
           onChange={(e) => setContent(e.target.value)}
+          placeholder='Learn Chakra-UI with Todo App'
+          minWidth={['auto', 240, 320]}
+          value={content}
+          variant='filled'
+          width={[300, "100%"]}
         />
         </FormControl>
         <Button colorScheme='pink' paddingInline='8' type='submit' width={[200, 'auto']}>
